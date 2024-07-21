@@ -26,4 +26,4 @@ phases:
       - echo "inside build commands and printing all environment variables below"
       - printenv
       - echo `pwd`
-      - bash $CODEBUILD_SRC_DIR/docker_python/scripts/build_and_push.sh $DOCKER_IMAGE_NAME
+      - bash $CODEBUILD_SRC_DIR/python-docker/scripts/build_and_push.sh $DOCKER_IMAGE_NAME
