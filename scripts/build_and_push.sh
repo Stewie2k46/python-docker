@@ -53,7 +53,7 @@ fullname="${account}.dkr.ecr.${region}.amazonaws.com/${ecr_repo_name}:${image_na
 echo "Fullname is $fullname"
 
 # Build the docker image locally with the image name and then push it to ECR with the full name
-docker build -t ${image_name} ${CODEBUILD_SRC_DIR}/docker_python/
+docker build -t ${image_name} ${CODEBUILD_SRC_DIR}/python-docker/
 
 if [ $? -ne 0 ]; then
     echo "Failed to build Docker image"
