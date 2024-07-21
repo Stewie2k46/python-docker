@@ -2,9 +2,8 @@ version: 0.2
 
 env:
   variables:
-    # SDLC_ENVIRONMENT: "$1"
-    DOCKER_IMAGE_NAME: "$1"
-    # GIT_REPO: "https://git-codecommit.us-east-1.amazonaws.com/v1/repos/dockerecrtestbuild"
+    DOCKER_IMAGE_NAME: "your-docker-image-name"
+
 phases:
   install:
     commands:
@@ -23,7 +22,8 @@ phases:
       - echo "This is the commit id from Source Control - $CODEBUILD_RESOLVED_SOURCE_VERSION"
   build:
     commands:
-      - echo "inside build commands and printing all environment variables below"
+      - echo "Inside build commands and printing all environment variables below"
       - printenv
       - echo `pwd`
+      - chmod +x $CODEBUILD_SRC_DIR/docker_python/scripts/build_and_push.sh
       - bash $CODEBUILD_SRC_DIR/python-docker/scripts/build_and_push.sh $DOCKER_IMAGE_NAME
